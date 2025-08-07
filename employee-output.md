@@ -1,14 +1,3 @@
-Yes — you’re referring to the **simulated output** from the prompt scenario where:
-
-* An **employee is being terminated**
-* Due to **poor performance**, despite **multiple mentoring sessions**
-* The employee is **not unwilling**, but feels **overwhelmed**, under-resourced, and maybe lost in a “survival of the fittest” culture
-* The company is a **mid-sized organization**, possibly fast-paced with limited support infrastructure
-
-Here's a refresh of that **AI-generated simulated employee-facing output**, grounded in emotional intelligence and legal awareness:
-
----
-
 ### 🧠 **Simulated Output (Employee Being Let Go — Overwhelmed, Not Unwilling)**
 
 ---
