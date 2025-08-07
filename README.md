@@ -1,19 +1,26 @@
 # 🤖 AI Prompt: Leading or Experiencing Termination with Legal Clarity and Emotional Intelligence
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![EI Focused](https://img.shields.io/badge/Emotional_Intelligence-Enabled-blueviolet)](https://www.linkedin.com/in/emcdo411)
+[![HR Ready](https://img.shields.io/badge/HR--Approved-✅-success)](https://www.shrm.org/)
+[![Prompt Quality](https://img.shields.io/badge/Prompt-Tested-brightgreen)](https://www.chat.openai.com)
+[![Feedback Welcome](https://img.shields.io/badge/Feedback-Welcome-yellow)](https://linkedin.com/in/emcdo411)
+
 A best-in-class AI prompt to guide HR leaders, People Ops managers, and emotionally intelligent executives through one of the most sensitive and consequential moments in modern work: **letting someone go — or being let go — with both legal clarity and human dignity**.
 
 ---
 
 ## 📌 Table of Contents
 
-1. [Overview](#1-overview)
-2. [Why This Prompt Matters](#2-why-this-prompt-matters)
-3. [What the Prompt Covers](#3-what-the-prompt-covers)
-4. [Mermaid Workflow: Termination with EI + Legal Care](#4-mermaid-workflow-termination-with-ei--legal-care)
-5. [Live Prompt Box](#5-live-prompt-box)
-6. [Suggested Use Cases](#6-suggested-use-cases)
-7. [Feedback Request](#7-feedback-request)
-8. [Sources & Statistics](#8-sources--statistics)
+1. [Overview](#1-overview)  
+2. [Why This Prompt Matters](#2-why-this-prompt-matters)  
+3. [What the Prompt Covers](#3-what-the-prompt-covers)  
+4. [Mermaid Workflow: Termination with EI + Legal Care](#4-mermaid-workflow-termination-with-ei--legal-care)  
+5. [Mermaid Diagram: Hiring Process Overview](#5-mermaid-diagram-hiring-process-overview)  
+6. [Live Prompt Box](#6-live-prompt-box)  
+7. [Suggested Use Cases](#7-suggested-use-cases)  
+8. [Feedback Request](#8-feedback-request)  
+9. [Sources & Statistics](#9-sources--statistics)  
 
 ---
 
@@ -35,12 +42,12 @@ While layoffs and terminations are often seen as procedural, they leave a lastin
 
 ## 3. What the Prompt Covers
 
-- ✅ Pre-termination legal and HR checklist
-- ✅ Tone-sensitive scripts for managers
-- ✅ Regional compliance nuances (U.S., UK, EU, remote/global)
-- ✅ Respectful and empowering reframes for employees
-- ✅ DEI risk checks and post-event morale support
-- ✅ Formatting options for coaching, PDF, and slide deck output
+- ✅ Pre-termination legal and HR checklist  
+- ✅ Tone-sensitive scripts for managers  
+- ✅ Regional compliance nuances (U.S., UK, EU, remote/global)  
+- ✅ Respectful and empowering reframes for employees  
+- ✅ DEI risk checks and post-event morale support  
+- ✅ Formatting options for coaching, PDF, and slide deck output  
 
 ---
 
@@ -82,7 +89,26 @@ graph TD
 
 ---
 
-## 5. Live Prompt Box
+## 5. Mermaid Diagram: Hiring Process Overview
+
+```mermaid
+sequenceDiagram
+    actor Candidate
+    participant HR
+    participant Manager
+    Candidate->>HR: Submit Application
+    HR->>Manager: Review Application
+    Manager->>Candidate: Schedule Interview
+    Candidate->>Manager: Complete Interview
+    Manager->>HR: Approve Candidate
+    HR->>Candidate: Send Offer
+    Candidate->>HR: Accept Offer
+    HR->>Candidate: Onboard
+```
+
+---
+
+## 6. Live Prompt Box
 
 👉 Click here to [copy the full AI prompt for your HR tool](./termination_prompt.md)
 
@@ -90,7 +116,7 @@ You can also use it with ChatGPT, Claude, or your in-house LLM for simulation an
 
 ---
 
-## 6. Suggested Use Cases
+## 7. Suggested Use Cases
 
 * 🔹 Manager training modules
 * 🔹 Executive coaching frameworks
@@ -100,7 +126,7 @@ You can also use it with ChatGPT, Claude, or your in-house LLM for simulation an
 
 ---
 
-## 7. Feedback Request
+## 8. Feedback Request
 
 > 🧠 **HR Professionals & DEI Leaders** — I’m actively seeking feedback on this prompt.
 > What’s helpful? What would you change?
@@ -109,7 +135,7 @@ You can also use it with ChatGPT, Claude, or your in-house LLM for simulation an
 
 ---
 
-## 8. Sources & Statistics
+## 9. Sources & Statistics
 
 * [U.S. Bureau of Labor Statistics — Job Openings and Labor Turnover, June 2025](https://www.bls.gov/news.release/jolts.nr0.htm)
 * [McKinsey & Company — Rehumanizing Layoffs (2023)](https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/how-to-rehumanize-layoffs)
@@ -124,9 +150,7 @@ You can also use it with ChatGPT, Claude, or your in-house LLM for simulation an
 
 ```
 
----
-
-Would you like this README saved into a `.md` file now for upload to your repo?
+Let me know if you’d like this saved as a `.md` file or if you’re ready for the LinkedIn post copy to promote it.
 ```
 
 
