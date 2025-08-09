@@ -202,17 +202,66 @@ graph TD
 
 ```mermaid
 sequenceDiagram
+    autonumber
     actor Candidate
-    participant HR
-    participant Manager
-    Candidate->>HR: Submit Application
-    HR->>Manager: Review Application
-    Manager->>Candidate: Schedule Interview
-    Candidate->>Manager: Complete Interview
-    Manager->>HR: Approve Candidate
-    HR->>Candidate: Send Offer
-    Candidate->>HR: Accept Offer
-    HR->>Candidate: Onboard
+    participant ATS as ATS
+    participant HR as HR
+    participant Manager as Hiring Manager
+    participant Comp as Compensation
+    participant Legal as Legal
+    participant BGC as Background Check
+    participant IT as IT
+    participant Fin as Finance
+    participant Fac as Facilities
+    participant PeopleOps as People Ops
+
+    Candidate->>ATS: Submit application
+    ATS-->>HR: Screen & score (SLA 24h)
+    HR->>Manager: Shortlist review (SLA 48h)
+
+    alt Proceed
+        Manager->>Candidate: Schedule interview
+        loop Interview loop (≤ 3 rounds)
+            Manager->>Candidate: Conduct interview / panel
+            Candidate-->>Manager: Provide follow-ups
+        end
+        opt Candidate questions
+            Candidate->>HR: Ask about role/benefits
+            HR-->>Candidate: Clarify & set expectations
+        end
+        par References & background
+            HR->>BGC: Initiate background check
+            Manager->>HR: Provide reference contacts
+        end
+        Manager->>HR: Select finalist
+        HR->>Comp: Request compensation package
+        Comp->>Legal: Terms review (as needed)
+        Legal-->>Comp: Approval
+        Comp-->>HR: Pay band approved
+        alt Counteroffer
+            Candidate->>HR: Counteroffer
+            HR->>Manager: Align on revisions
+            HR-->>Candidate: Final offer
+        else Accept
+            HR->>Candidate: Send offer (DocuSign)
+            Candidate->>HR: Accept offer
+        end
+        par Day 0 setup (parallel)
+            HR->>IT: Provision accounts & laptop
+            HR->>Fin: Add to payroll
+            HR->>Fac: Badge/seat request
+        end
+        PeopleOps->>Candidate: Welcome + onboarding portal
+        Note over Candidate,PeopleOps: 30/60/90 plan • Mentor assigned
+    else Hold/Reject
+        Manager-->>HR: Hold/Reject with rationale
+        HR-->>Candidate: Status update & feedback (if policy allows)
+    end
+
+    opt Capture funnel metrics
+        ATS-->>HR: Time-to-fill • Drop-offs • Offer/accept rate
+    end
+
 ```
 
 ---
