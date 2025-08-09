@@ -57,34 +57,143 @@ While layoffs and terminations are often seen as procedural, they leave a lastin
 
 ```mermaid
 graph TD
-    A[Start: Termination Decision] -->|Review Reason| B{Is it Layoff or Performance-Based?}
-    B -->|Layoff| C[Check Legal Requirements<br>US: WARN Act if >50 employees<br>EU: Consult Works Council]
-    B -->|Performance-Based| D[Review Performance Records<br>Ensure Documentation]
-    C --> E[Prepare Termination Package<br>Include Severance, Outplacement]
-    D --> E
-    E --> F[Schedule Private Meeting<br>Use EI: Empathetic Tone]
-    F --> G{Deliver Termination News}
-    G -->|EI: Active Listening| H[Explain Reason, Benefits, Next Steps<br>BLS: 5.3M separations in June 2025]
-    H --> I[Provide Aftercare<br>Outplacement, References]
-    I --> J{Manager Follow-Up}
-    J -->|Legal Compliance| K[Document Meeting<br>File with HRIS]
-    J -->|EI Support| L[Offer Manager Training<br>BLS: 26% EI skill demand by 2030]
-    K --> M[End: Process Complete]
-    L --> M
+  %% =========================
+  %% SWIMLANES (SUBGRAPHS)
+  %% =========================
+  subgraph L1[Legal & Compliance]
+    LSTART[Gate: Termination Request Received]
+    LTYPE{Type Check<br/>Layoff or Performance}
+    LREG{Region Check<br/>US EU UK APAC}
+    LWC[Works Council or Consultation<br/>as required]
+    LADV[Adverse Impact Review]
+    LAUD[Audit Pack Ready]
+  end
 
-    style A fill:#007bff,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style B fill:#6c757d,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style C fill:#3498db,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style D fill:#3498db,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style E fill:#007bff,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style F fill:#007bff,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style G fill:#6c757d,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style H fill:#3498db,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style I fill:#007bff,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style J fill:#6c757d,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style K fill:#3498db,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style L fill:#3498db,stroke:#1a3c6e,stroke-width:2px,color:#fff
-    style M fill:#007bff,stroke:#1a3c6e,stroke-width:2px,color:#fff
+  subgraph L2[HR / People]
+    HUP[Prechecks<br/>PIP in place if performance<br/>Docs quality verified]
+    HPROT[Protected Status or Leave Check<br/>eg medical parental]
+    HVISA[Immigration or Visa Review]
+    HPACK[Prepare Package<br/>Severance benefits outplacement]
+    HMEET[Schedule Private Meeting<br/>HR present manager briefed]
+    HAFTER[Aftercare Touchpoints<br/>24h 7d 30d follow ups]
+    HFILE[Record & Retention<br/>File in HRIS]
+  end
+
+  subgraph L3[Manager]
+    MBRIEF[Manager Prebrief<br/>script practice EI coaching]
+    MDELIVER{Deliver News<br/>with empathy and clarity}
+    MDEC[If new facts emerge<br/>request exception or appeal]
+    MTRAIN[Manager Enablement<br/>post event coaching]
+  end
+
+  subgraph L4[IT / Security]
+    ITPLAN[Offboarding Plan<br/>apps access devices]
+    ITCUT[Access Disablement<br/>at meeting time]
+    ITREC[Device Retrieval & Data Return]
+  end
+
+  subgraph L5[Finance / Payroll]
+    FPAY[Final Pay Calculation<br/>salary PTO commission]
+    FBEN[Benefits & Coverage<br/>COBRA or local equivalent]
+    FEQ[Equity or Bonus Treatment<br/>per policy]
+  end
+
+  subgraph L6[Communications]
+    COMMS[Comms Kit<br/>manager script FAQ timing]
+    TEAMMSG[Team Message Sequencing<br/>impacted then remaining]
+  end
+
+  subgraph L7[Metrics & Learning]
+    METRICS[Capture KPIs<br/>cycle time errors sentiment]
+    IMPROVE[Policy & Training Updates]
+  end
+
+  %% =========================
+  %% CONTEXT BANNERS (OPTIONAL)
+  %% =========================
+  RISK[Context<br/>Market reductions and automation risk]
+  CAREERS[Context<br/>Reemployment and outplacement resources]
+
+  %% =========================
+  %% MAIN FLOW
+  %% =========================
+  LSTART --> LTYPE
+  LTYPE -->|Layoff| LREG
+  LTYPE -->|Performance| HUP
+
+  %% Layoff path
+  LREG --> LWC
+  LWC --> LADV
+  LADV --> HPACK
+
+  %% Performance path guardrails
+  HUP --> HPROT --> HVISA --> LADV --> HPACK
+
+  %% Cross functional preparation
+  HPACK --> HMEET
+  HPACK --> FPAY
+  HPACK --> FBEN
+  HPACK --> FEQ
+  HPACK --> COMMS
+  COMMS --> TEAMMSG
+
+  %% IT planned in parallel
+  HPACK --> ITPLAN
+  ITPLAN --> ITCUT
+  ITCUT --> ITREC
+
+  %% Manager enablement and delivery
+  HMEET --> MBRIEF --> MDELIVER
+
+  %% Meeting outcomes
+  MDELIVER --> HAFTER
+  MDELIVER --> ITCUT
+  MDELIVER --> FPAY
+  MDELIVER --> FBEN
+  MDELIVER --> FEQ
+
+  %% Documentation and audit
+  HAFTER --> HFILE --> LAUD
+
+  %% Appeals or exceptions
+  MDELIVER -->|New facts| MDEC -->|Approve| HPACK
+  MDEC -->|Deny| HAFTER
+
+  %% Post event manager support
+  HAFTER --> MTRAIN
+
+  %% Metrics & learning loop
+  LAUD --> METRICS --> IMPROVE
+  IMPROVE --> HUP
+  IMPROVE --> COMMS
+  IMPROVE --> ITPLAN
+  IMPROVE --> FPAY
+
+  %% Context links (dotted)
+  LTYPE -. context .-> RISK
+  HAFTER -. resources .-> CAREERS
+
+  %% =========================
+  %% STYLES
+  %% =========================
+  classDef legal fill:#0d6efd,stroke:#153a72,color:#fff,stroke-width:2px;
+  classDef hr fill:#3aa0ff,stroke:#153a72,color:#fff,stroke-width:2px;
+  classDef mgr fill:#6c757d,stroke:#1a3c6e,color:#fff,stroke-width:2px;
+  classDef it fill:#0b7285,stroke:#093b44,color:#fff,stroke-width:2px;
+  classDef fin fill:#1f8b4c,stroke:#0f4a28,color:#fff,stroke-width:2px;
+  classDef comms fill:#8e44ad,stroke:#4a235a,color:#fff,stroke-width:2px;
+  classDef learn fill:#e67e22,stroke:#7e3f0e,color:#fff,stroke-width:2px;
+  classDef banner fill:#2b2b2b,stroke:#555,color:#eaeaea,stroke-width:1.5px;
+
+  class LSTART,LTYPE,LREG,LWC,LADV,LAUD legal;
+  class HUP,HPROT,HVISA,HPACK,HMEET,HAFTER,HFILE hr;
+  class MBRIEF,MDELIVER,MDEC,MTRAIN mgr;
+  class ITPLAN,ITCUT,ITREC it;
+  class FPAY,FBEN,FEQ fin;
+  class COMMS,TEAMMSG comms;
+  class METRICS,IMPROVE learn;
+  class RISK,CAREERS banner;
+
 ````
 
 ---
